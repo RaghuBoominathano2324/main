@@ -139,27 +139,27 @@ const checkUserExists = async (req, res) => {
 };
 
 //Update user profile (protected route)
-export const updateUserProfile = async (req, res) => {
-    const { name, email, phone, address, cuisine, preferences } = req.body;
+// export const updateUserProfile = async (req, res) => {
+//     const { name, email, phone, address, cuisine, preferences } = req.body;
 
-    try {
-        const userId = req.user.id;  // from JWT middleware
-        const updatedUser = await userModel.findByIdAndUpdate(userId, {
-            name,
-            email,
-            phone,
-            address,
-            cuisine,
-            preferences
-        }, { new: true });  // `new: true` returns the updated document
+//     try {
+//         const userId = req.user.id;  // from JWT middleware
+//         const updatedUser = await userModel.findByIdAndUpdate(userId, {
+//             name,
+//             email,
+//             phone,
+//             address,
+//             cuisine,
+//             preferences
+//         }, { new: true });  // `new: true` returns the updated document
 
-        if (!updatedUser) return res.status(404).json({ message: 'User not found' });
+//         if (!updatedUser) return res.status(404).json({ message: 'User not found' });
 
-        res.status(200).json({ data: updatedUser });
-    } catch (error) {
-        res.status(500).json({ message: 'Server error' });
-    }
-};
+//         res.status(200).json({ data: updatedUser });
+//     } catch (error) {
+//         res.status(500).json({ message: 'Server error' });
+//     }
+// };
 // const updateProfile = async (userData) => {
 //     const response = await fetch('/api/users/profile', {
 //       method: 'PUT',
